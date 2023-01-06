@@ -5,9 +5,9 @@ using UnityEngine;
 public class RandomSpeedOnStart : MonoBehaviour
 {
     [SerializeField]
-    float minSpeed = 10.0f;
+    float minSpeed = -10.0f;
     [SerializeField]
-    float maxSpeed = 20.0f;
+    float maxSpeed = 10.0f;
 
     Rigidbody rb;
 
@@ -15,7 +15,8 @@ public class RandomSpeedOnStart : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.velocity = new Vector3(Random.Range(minSpeed, maxSpeed), Random.Range(minSpeed, maxSpeed), Random.Range(minSpeed, maxSpeed));
+        // add a random force to the rigidbody
+        rb.AddForce(new Vector3(Random.Range(minSpeed, maxSpeed), Random.Range(minSpeed, maxSpeed), Random.Range(minSpeed, maxSpeed)), ForceMode.Impulse);
     }
 
 }
