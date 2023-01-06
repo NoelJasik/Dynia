@@ -16,6 +16,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float torque = 5.0f;
 
+    // Rotation speed of the car in degrees per second
+    [SerializeField]
+    float rotationSpeed = 90.0f;
+
     // Reference to the car's rigidbody component
     Rigidbody rb;
 
@@ -30,14 +34,14 @@ public class PlayerMovement : MonoBehaviour
         // Get input from the horizontal axis
         float horizontalInput = Input.GetAxis("Horizontal");
 
-        // Apply torque to the wheels based on the input
-        rb.AddTorque(transform.up * torque * horizontalInput);
+        // Calculate the current speed of the car
+        float currentSpeed = rb.velocity.magnitude;
+
+        // Rotate the car based on the speed and input
+        rb.MoveRotation(rb.rotation * Quaternion.Euler(0, rotationSpeed * horizontalInput * Time.deltaTime * currentSpeed / maxSpeed, 0));
 
         // Get input from the vertical axis
         float verticalInput = Input.GetAxis("Vertical");
-
-        // Calculate the current speed of the car
-        float currentSpeed = rb.velocity.magnitude;
 
         // If the current speed is less than the maximum speed, apply a force in the forward direction based on the input
         if (currentSpeed < maxSpeed)
