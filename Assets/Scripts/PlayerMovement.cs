@@ -27,7 +27,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Movement();
+        if (rb.velocity.y < -0.01f || rb.velocity.y > 0.01f)
+        {
+            Movement();
+        }
     }
 
     void Movement()
