@@ -6,19 +6,18 @@ public class TopDownCamera : MonoBehaviour
 {
 
     // Position of player
-    [SeralizeFiled]
-    
-    
+    [SerializeField]
+    Transform player;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // Offset of camera from player
+    [SerializeField]
+    Vector3 offset;
+
 
     // Update is called once per frame
     void Update()
     {
-        
+        // Set the camera's position to the player's position plus the offset
+        transform.position = player.position + offset;        
     }
 }

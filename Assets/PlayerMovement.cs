@@ -5,16 +5,19 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     // Speed of the car in meters per second
-    public float speed = 10.0f;
+    [SerializeField]
+    float speed = 10.0f;
 
     // Maximum speed of the car in meters per second
-    public float maxSpeed = 20.0f;
+    [SerializeField]
+    float maxSpeed = 20.0f;
 
     // Torque applied to the car's wheels
-    public float torque = 5.0f;
+    [SerializeField]
+    float torque = 5.0f;
 
     // Reference to the car's rigidbody component
-    private Rigidbody rb;
+    Rigidbody rb;
 
     void Start()
     {
