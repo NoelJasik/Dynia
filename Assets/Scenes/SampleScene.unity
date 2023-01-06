@@ -3605,6 +3605,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b9219a780d073f2b02863900677134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDeathEffect: {fileID: 5472773794621225674, guid: 7494d74dade4e57c6a2282ffd226a9a9, type: 3}
+  topDownCamera: {fileID: 963194229}
 --- !u!1 &2112420517
 GameObject:
   m_ObjectHideFlags: 0

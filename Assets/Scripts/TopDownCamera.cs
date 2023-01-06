@@ -6,8 +6,7 @@ public class TopDownCamera : MonoBehaviour
 {
 
     // Position of player
-    [SerializeField]
-    Transform player;
+    public Transform player;
 
     // Offset of camera from player
     [SerializeField]
