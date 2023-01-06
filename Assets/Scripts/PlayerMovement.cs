@@ -27,7 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (rb.velocity.y < -0.01f || rb.velocity.y > 0.01f)
+        Debug.Log(rb.velocity.y);
+        if (rb.velocity.y > -0.01f || rb.velocity.y < 0.01f)
         {
             Movement();
         }
