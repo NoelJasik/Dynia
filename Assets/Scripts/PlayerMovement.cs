@@ -31,6 +31,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        Movement();
+    }
+
+    void Movement()
+    {
         // Get input from the horizontal axis
         float horizontalInput = Input.GetAxis("Horizontal");
 

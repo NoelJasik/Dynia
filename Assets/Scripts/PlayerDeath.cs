@@ -14,11 +14,12 @@ public class PlayerDeath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If the player falls off the map, die
         if(transform.position.y < -10)
         {
             Die();
         }
-        Debug.Log(transform.rotation.z);
+        // If the player falls over, die
         if(transform.rotation.z > 0.5 || transform.rotation.z < -0.5)
         {
             Debug.Log("Player has died");
