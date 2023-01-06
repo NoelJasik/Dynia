@@ -25,6 +25,11 @@ public class PlayerDeath : MonoBehaviour
             Debug.Log("Player has died");
             Die();
         }
+        if(transform.rotation.x > 0.75 || transform.rotation.x < -0.75)
+        {
+            Debug.Log("Player has died");
+            Die();
+        }
     }
 
     // Die function
