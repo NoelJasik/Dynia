@@ -20,6 +20,7 @@ public class PlayerDeath : MonoBehaviour
             Die();
         }
         // If the player falls over, die
+        Debug.Log(transform.rotation.z);
         if(transform.rotation.z > 0.5 || transform.rotation.z < -0.5)
         {
             Debug.Log("Player has died");

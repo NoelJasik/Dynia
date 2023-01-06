@@ -12,10 +12,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float maxSpeed = 20.0f;
 
-    // Torque applied to the car's wheels
-    [SerializeField]
-    float torque = 5.0f;
-
     // Rotation speed of the car in degrees per second
     [SerializeField]
     float rotationSpeed = 90.0f;
