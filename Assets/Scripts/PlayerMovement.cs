@@ -19,6 +19,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     GameObject[] movementEffect;
 
+    // Angle at which the car starts to tip over
+    [SerializeField]
+    float tippingAngle = 45.0f;
+
+    // Torque applied to stabilize the car
+    [SerializeField]
+    float stabilizationForce = 1000.0f;
+
     // Reference to the car's rigidbody component
     Rigidbody rb;
 
@@ -33,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         if (rb.velocity.y > -0.5f && rb.velocity.y < 0.5f)
         {
             Movement();
+            Stabilize();
         }
     }
 
@@ -51,15 +60,42 @@ public class PlayerMovement : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         // If the player is moving forward, spawn a particle effect
-            foreach (GameObject particle in movementEffect)
-            {
-                particle.SetActive(currentSpeed > 1.0f);
-            }
+        foreach (GameObject particle in movementEffect)
+        {
+            particle.SetActive(currentSpeed > 1.0f);
+        }
 
         // If the current speed is less than the maximum speed, apply a force in the forward direction based on the input
         if (currentSpeed < maxSpeed)
         {
             rb.AddForce(transform.forward * speed * verticalInput);
         }
+
     }
+
+    // Calculates and applies the torque needed to keep the car upright// Calculates and applies the torque needed to keep the car upright
+    void Stabilize()
+    {
+        // Calculate the torque needed to correct the car's rotation
+        float torque = 0;
+        if ((transform.rotation.eulerAngles.z > tippingAngle && transform.rotation.eulerAngles.z < 300))
+        {
+            torque = -stabilizationForce; // Add torque in the opposite direction that the car is falling over
+        }
+        else if ((transform.rotation.eulerAngles.z < -tippingAngle && transform.rotation.eulerAngles.z > -300))
+        {
+            torque = stabilizationForce; // Add torque in the opposite direction that the car is falling over
+        } else 
+        {
+            torque = 0;
+        }
+
+        // Apply the torque to the rigidbody
+        rb.AddTorque(new Vector3(0, 0, torque));
+
+    }
+
+
 }
+
+
