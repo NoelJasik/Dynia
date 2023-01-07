@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         // If the player is moving forward, spawn a particle effect
             foreach (GameObject particle in movementEffect)
             {
-                particle.SetActive(currentSpeed > 0);
+                particle.SetActive(currentSpeed > 1.0f);
             }
 
         // If the current speed is less than the maximum speed, apply a force in the forward direction based on the input
