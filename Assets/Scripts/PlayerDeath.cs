@@ -19,7 +19,6 @@ public class PlayerDeath : MonoBehaviour
         {
             Die();
         }
-        Debug.Log(transform.rotation.eulerAngles.z);
         // If the player falls over, die
         if((transform.rotation.eulerAngles.z > 80 && transform.rotation.eulerAngles.z < 300) || (transform.rotation.eulerAngles.z < -80 && transform.rotation.eulerAngles.z > -300))
         {
