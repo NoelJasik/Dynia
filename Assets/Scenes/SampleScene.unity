@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &187546046
 Transform:
   m_ObjectHideFlags: 0
@@ -5402,7 +5402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &813580037
 Transform:
   m_ObjectHideFlags: 0
@@ -10812,6 +10812,9 @@ MonoBehaviour:
   speed: 75
   maxSpeed: 20
   rotationSpeed: 120
+  movementEffect:
+  - {fileID: 813580036}
+  - {fileID: 187546045}
 --- !u!65 &2065905459
 BoxCollider:
   m_ObjectHideFlags: 0

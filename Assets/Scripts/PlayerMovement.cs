@@ -51,13 +51,10 @@ public class PlayerMovement : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         // If the player is moving forward, spawn a particle effect
-        if (verticalInput > 0)
-        {
             foreach (GameObject particle in movementEffect)
             {
-                particle.SetActive(true);
+                particle.SetActive(verticalInput > 0);
             }
-        }
 
         // If the current speed is less than the maximum speed, apply a force in the forward direction based on the input
         if (currentSpeed < maxSpeed)
