@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class WalkForward : MonoBehaviour
 {
+    [SeralizeField]
+    float moveSpeed;
+    [SeralizeField]
+    float jumpFroce;
+    [SeralizeField]
+    float jumpTimer;
     
     // Start is called before the first frame update
     void Start()
