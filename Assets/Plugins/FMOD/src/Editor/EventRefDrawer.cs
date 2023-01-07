@@ -7,13 +7,13 @@ using UnityEditor;
 namespace FMODUnity
 {
     [CustomPropertyDrawer(typeof(EventReference))]
-    public class EventReferenceDrawer : PropertyDrawer
+    class EventReferenceDrawer : PropertyDrawer
     {
-        private static readonly Texture RepairIcon = EditorUtils.LoadImage("Wrench.png");
-        private static readonly Texture WarningIcon = EditorUtils.LoadImage("NotFound.png");
-        private static readonly GUIContent NotFoundWarning = new GUIContent("Event Not Found", WarningIcon);
+        static readonly Texture RepairIcon = EditorUtils.LoadImage("Wrench.png");
+        static readonly Texture WarningIcon = EditorUtils.LoadImage("NotFound.png");
+        static readonly GUIContent NotFoundWarning = new GUIContent("Event Not Found", WarningIcon);
 
-        private static GUIStyle buttonStyle;
+        static GUIStyle buttonStyle;
 
         private static Vector2 WarningSize()
         {
@@ -52,7 +52,14 @@ namespace FMODUnity
                 headerRect.width = EditorGUIUtility.labelWidth;
                 headerRect.height = baseHeight;
 
-                property.isExpanded = EditorGUI.Foldout(headerRect, property.isExpanded, label, true);
+                if (editorEventRef != null)
+                {
+                    property.isExpanded = EditorGUI.Foldout(headerRect, property.isExpanded, label, true);
+                }
+                else
+                {
+                    EditorGUI.LabelField(headerRect, label);
+                }
 
                 Rect addRect = new Rect(position.xMax - addIcon.width - 7, position.y, addIcon.width + 7, baseHeight);
                 Rect openRect = new Rect(addRect.x - openIcon.width - 7, position.y, openIcon.width + 6, baseHeight);
@@ -83,7 +90,6 @@ namespace FMODUnity
                     windowRect.xMin = pathRect.xMin;
                     windowRect.position = GUIUtility.GUIToScreenPoint(windowRect.position);
                     windowRect.height = openRect.height + 1;
-                    windowRect.width = Mathf.Max(windowRect.width, 300f);
                     eventBrowser.ShowAsDropDown(windowRect, new Vector2(windowRect.width, 400));
 
                 }
@@ -96,7 +102,6 @@ namespace FMODUnity
                     windowRect.xMin = pathRect.xMin;
                     windowRect.position = GUIUtility.GUIToScreenPoint(windowRect.position);
                     windowRect.height = openRect.height + 1;
-                    windowRect.width = Mathf.Max(windowRect.width, 300f);
                     addDropdown.ShowAsDropDown(windowRect, new Vector2(windowRect.width, 500));
 
                 }
@@ -412,11 +417,11 @@ namespace FMODUnity
 #pragma warning disable 0618 // Suppress the warning about using the obsolete EventRefAttribute class
     [CustomPropertyDrawer(typeof(EventRefAttribute))]
 #pragma warning restore 0618
-    public class LegacyEventRefDrawer : PropertyDrawer
+    class LegacyEventRefDrawer : PropertyDrawer
     {
-        private GUIStyle RichTextStyle;
+        GUIStyle RichTextStyle;
 
-        private const string HelpText =
+        const string HelpText =
             "This field has the <b>[EventRef]</b> attribute, which is obsolete.\n" +
             "To resolve this issue:\n" +
             "* Add a field of type <b>EventReference</b> to this class\n" +
@@ -425,10 +430,10 @@ namespace FMODUnity
             "* Run the <b>" + EventReferenceUpdater.MenuPath + "</b> command to " +
             "automatically migrate values from this field to the <b>EventReference</b> field";
 
-        private static readonly Texture InfoIcon = EditorGUIUtility.IconContent("console.infoicon.sml").image;
-        private static readonly Texture WarningIcon = EditorUtils.LoadImage("NotFound.png");
+        static readonly Texture InfoIcon = EditorGUIUtility.IconContent("console.infoicon.sml").image;
+        static readonly Texture WarningIcon = EditorUtils.LoadImage("NotFound.png");
 
-        private void AffirmStyles()
+        void AffirmStyles()
         {
             if (RichTextStyle == null)
             {

@@ -24,13 +24,13 @@ namespace FMODUnity
 
         private static string FMODFolderFull => $"Assets/{RuntimeUtils.PluginBasePath}";
 
-        private const string CacheFolderName = "Cache";
-        private static string CacheFolderRelative => $"{RuntimeUtils.PluginBasePath}/{CacheFolderName}";
-        private static string CacheFolderFull => $"{FMODFolderFull}/{CacheFolderName}";
+        const string CacheFolderName = "Cache";
+        static string CacheFolderRelative => $"{RuntimeUtils.PluginBasePath}/{CacheFolderName}";
+        static string CacheFolderFull => $"{FMODFolderFull}/{CacheFolderName}";
 
-        private const string RegisterStaticPluginsFile = "RegisterStaticPlugins.cs";
-        private static string RegisterStaticPluginsAssetPathRelative => $"{CacheFolderRelative}/{RegisterStaticPluginsFile}";
-        private static string RegisterStaticPluginsAssetPathFull => $"{CacheFolderFull}/{RegisterStaticPluginsFile}";
+        const string RegisterStaticPluginsFile = "RegisterStaticPlugins.cs";
+        static string RegisterStaticPluginsAssetPathRelative => $"{CacheFolderRelative}/{RegisterStaticPluginsFile}";
+        static string RegisterStaticPluginsAssetPathFull => $"{CacheFolderFull}/{RegisterStaticPluginsFile}";
 
         [NonSerialized]
         private Dictionary<string, bool> binaryCompatibilitiesBeforeBuild;
@@ -52,12 +52,6 @@ namespace FMODUnity
             EditorApplication.ExecuteMenuItem("Window/General/Inspector");
         }
 
-        public void Clear()
-        {
-            PlatformForBuildTarget.Clear();
-            binaryCompatibilitiesBeforeBuild = null;
-        }
-
         public void CreateSettingsAsset(string assetName)
         {
             string resourcesPath = $"{FMODFolderFull}/Resources";
@@ -77,14 +71,7 @@ namespace FMODUnity
             {
                 if (buildTarget != BuildTarget.NoTarget)
                 {
-                    try
-                    {
-                        PlatformForBuildTarget.Add(buildTarget, platform);
-                    }
-                    catch (Exception e)
-                    {
-                        RuntimeUtils.DebugLogWarningFormat("FMOD: Error platform {0} already added to build targets. : {1}", buildTarget, e.Message);
-                    }
+                    PlatformForBuildTarget.Add(buildTarget, platform);
                 }
             }
         }
@@ -108,7 +95,7 @@ namespace FMODUnity
             RemovePlatformFromAsset(RuntimeSettings.DefaultPlatform);
             RemovePlatformFromAsset(RuntimeSettings.PlayInEditorPlatform);
 
-            RuntimeSettings.Platforms.ForEach(RemovePlatformFromAsset);
+            RuntimeSettings.ForEachPlatform(RemovePlatformFromAsset);
 
             foreach (Platform platform in Resources.LoadAll<Platform>(Settings.SettingsAssetName))
             {
@@ -337,7 +324,7 @@ namespace FMODUnity
                 RuntimeSettings.AddPlatform(platform);
             }
 
-            RuntimeSettings.Platforms.ForEach(UpdateMigratedPlatform);
+            RuntimeSettings.ForEachPlatform(UpdateMigratedPlatform);
         }
 
         private void MigrateLegacyPlatforms<TValue, TSetting>(List<TSetting> settings,
@@ -451,7 +438,7 @@ namespace FMODUnity
 
             if (!PlatformForBuildTarget.TryGetValue(target, out platform))
             {
-                error = string.Format("No FMOD platform found for build target {0}. " +
+                error = string.Format("No FMOD platform found for build target {0}.\n" +
                             "You may need to install a platform specific integration package from {1}.",
                             target, DownloadURL);
                 return false;
@@ -615,7 +602,7 @@ namespace FMODUnity
             RuntimeUtils.DebugLog(message);
         }
 
-        public bool ForceLoggingBinaries { get; set; } = false;
+        public bool ForceLoggingBinaries { get; private set; } = false;
 
         public class BuildProcessor : IPreprocessBuildWithReport, IPostprocessBuildWithReport
         {
@@ -650,24 +637,29 @@ namespace FMODUnity
             }
         }
 
-        public void CheckActiveBuildTarget()
+        public class BuildTargetChecker : IActiveBuildTargetChanged
         {
-            Settings.EditorSettings.CleanTemporaryFiles();
+            public int callbackOrder { get { return 0; } }
 
-            Platform.BinaryType binaryType = EditorUserBuildSettings.development
-                ? Platform.BinaryType.Logging
-                : Platform.BinaryType.Release;
-
-            string error;
-            if (!Settings.EditorSettings.CanBuildTarget(EditorUserBuildSettings.activeBuildTarget, binaryType, out error))
+            public void OnActiveBuildTargetChanged(BuildTarget previous, BuildTarget current)
             {
-                RuntimeUtils.DebugLogWarning(error);
+                Settings.EditorSettings.CleanTemporaryFiles();
 
-                if (EditorWindow.HasOpenInstances<BuildPlayerWindow>())
+                Platform.BinaryType binaryType = EditorUserBuildSettings.development
+                    ? Platform.BinaryType.Logging
+                    : Platform.BinaryType.Release;
+
+                string error;
+                if (!Settings.EditorSettings.CanBuildTarget(current, binaryType, out error))
                 {
-                    GUIContent message =
-                        new GUIContent("FMOD detected issues with this platform!\nSee the Console for details.");
-                    EditorWindow.GetWindow<BuildPlayerWindow>().ShowNotification(message, 10);
+                    RuntimeUtils.DebugLogWarning(error);
+
+                    if (EditorWindow.HasOpenInstances<BuildPlayerWindow>())
+                    {
+                        GUIContent message =
+                            new GUIContent("FMOD detected issues with this platform!\nSee the Console for details.");
+                        EditorWindow.GetWindow<BuildPlayerWindow>().ShowNotification(message, 10);
+                    }
                 }
             }
         }
@@ -676,14 +668,13 @@ namespace FMODUnity
         // Settings object.
         public void AddPlatformsToAsset()
         {
-            RuntimeSettings.Platforms.ForEach(AddPlatformToAsset);
+            RuntimeSettings.ForEachPlatform(AddPlatformToAsset);
         }
 
         private void AddPlatformToAsset(Platform platform)
         {
             if (!AssetDatabase.Contains(platform))
             {
-                platform.name = "FMODStudioSettingsPlatform";
                 AssetDatabase.AddObjectToAsset(platform, RuntimeSettings);
             }
         }

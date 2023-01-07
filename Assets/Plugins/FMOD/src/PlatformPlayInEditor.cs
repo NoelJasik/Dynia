@@ -33,20 +33,20 @@ namespace FMODUnity
             Identifier = "playInEditor";
         }
 
-        internal override string DisplayName { get { return "Editor"; } }
-        internal override void DeclareRuntimePlatforms(Settings settings)
+        public override string DisplayName { get { return "Editor"; } }
+        public override void DeclareRuntimePlatforms(Settings settings)
         {
             settings.DeclareRuntimePlatform(RuntimePlatform.OSXEditor, this);
             settings.DeclareRuntimePlatform(RuntimePlatform.WindowsEditor, this);
             settings.DeclareRuntimePlatform(RuntimePlatform.LinuxEditor, this);
         }
 #if UNITY_EDITOR
-        internal override IEnumerable<BuildTarget> GetBuildTargets()
+        public override IEnumerable<BuildTarget> GetBuildTargets()
         {
             yield break;
         }
 
-        internal override Legacy.Platform LegacyIdentifier { get { return Legacy.Platform.PlayInEditor; } }
+        public override Legacy.Platform LegacyIdentifier { get { return Legacy.Platform.PlayInEditor; } }
 
         protected override BinaryAssetFolderInfo GetBinaryAssetFolder(BuildTarget buildTarget)
         {
@@ -59,9 +59,9 @@ namespace FMODUnity
         }
 #endif
 
-        internal override bool IsIntrinsic { get { return true; } }
+        public override bool IsIntrinsic { get { return true; } }
 
-        internal override string GetBankFolder()
+        public override string GetBankFolder()
         {
             // Use original asset location because streaming asset folder will contain platform specific banks
             Settings globalSettings = Settings.Instance;
@@ -76,7 +76,7 @@ namespace FMODUnity
         }
 
 #if UNITY_EDITOR
-        internal override string GetPluginPath(string pluginName)
+        public override string GetPluginPath(string pluginName)
         {
             string platformsFolder = $"{Application.dataPath}/{RuntimeUtils.PluginBasePath}/platforms";
 
@@ -94,12 +94,12 @@ namespace FMODUnity
         }
 #endif
 
-        internal override void LoadStaticPlugins(FMOD.System coreSystem, Action<FMOD.RESULT, string> reportResult)
+        public override void LoadStaticPlugins(FMOD.System coreSystem, Action<FMOD.RESULT, string> reportResult)
         {
             // Ignore static plugins when playing in the editor
         }
 
-        internal override void InitializeProperties()
+        public override void InitializeProperties()
         {
             base.InitializeProperties();
 
@@ -110,15 +110,7 @@ namespace FMODUnity
             PropertyAccessors.VirtualChannelCount.Set(this, 1024);
         }
 #if UNITY_EDITOR
-        internal override OutputType[] ValidOutputTypes { get { return null; } }
+        public override OutputType[] ValidOutputTypes { get { return null; } }
 #endif
-
-        internal override List<CodecChannelCount> DefaultCodecChannels { get { return staticCodecChannels; } }
-
-        private static List<CodecChannelCount> staticCodecChannels = new List<CodecChannelCount>()
-        {
-            new CodecChannelCount { format = CodecType.FADPCM, channels = 0 },
-            new CodecChannelCount { format = CodecType.Vorbis, channels = 256 },
-        };
     }
 }
