@@ -1,4 +1,18 @@
 1. PlayerMovement - done
 2. PlayerDeath - done
 3. Particle effects - done (need a lil fix)
-4. First level (not yet made)
+4. Add checkpoints
+5. Add riding cars
+6. Add crates that fall over when you get close
+7. Add a dog that jumps at you
+8. Add holes in the ground you can fall into
+9. Add barriers and crates
+10. Add kids that throw frizzbess (those flying disks) at eachother
+11. Add Npcs walking around (optional)
+12. Add Main menu
+13. Add a ending screen
+
+Sections for the level
+first street, filled with holes, driving cars and pepole
+second park, with dogs and playing kids, and less level terrain
+third market, filled with crates that fall over, cars and more pepole and more props
