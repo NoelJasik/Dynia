@@ -1,0 +1,4 @@
+1. PlayerMovement - done
+2. PlayerDeath - done
+3. Particle effects - done (need a lil fix)
+4. First level (not yet made)
