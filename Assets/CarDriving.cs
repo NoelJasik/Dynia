@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WalkForward : MonoBehaviour
+public class CarDriving : MonoBehaviour
 {
     public Vector3 moveSpeed;
     [SerializeField]
     float existanceTime;
-    [SerializeField]
-    float jumpForce;
-    [SerializeField]
-    float jumpTime;
-
-    float jumpTimer;
 
     float existanceTimer;
 
@@ -22,7 +16,6 @@ public class WalkForward : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        jumpTimer = 0.1f;
         transform.localScale = new Vector3(0, 0, 0);
         existanceTimer = existanceTime;
     }
@@ -76,28 +69,15 @@ public class WalkForward : MonoBehaviour
         {
             rb.velocity = new Vector3(moveSpeed.x, rb.velocity.y, moveSpeed.z);
         }
-        // jump
-        jumpTimer -= Time.deltaTime;
-        if (jumpTimer <= 0 && rb.velocity.y > -0.1f && rb.velocity.y < 0.1f)
-        {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            jumpTimer = jumpTime;
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Obstacle")
+        if (collision.gameObject.tag == "Obstacle")
         {
-            Rigidbody collisionRb = collision.gameObject.GetComponent<Rigidbody>();
-            if((collisionRb.velocity.x > 1f || collisionRb.velocity.z > 1f) &&  moveSpeed != Vector3.zero)
-            {
                 Debug.Log("collision");
                 moveSpeed = Vector3.zero;
-                rb.velocity = new Vector3(rb.velocity.x * 3, rb.velocity.y, rb.velocity.z * 3);
-                jumpForce = 0;
-                rb.freezeRotation = false;
-            }
+                rb.velocity = new Vector3(rb.velocity.x * 0.5f, rb.velocity.y, rb.velocity.z * 0.5f);
         }
     }
 }

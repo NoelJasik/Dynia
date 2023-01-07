@@ -9,6 +9,8 @@ public class NpcSpawner : MonoBehaviour
     [SerializeField]
     float spawnTime;
     [SerializeField]
+    float spawnTimeVariance = 0;
+    [SerializeField]
     Transform spawnPoint;
     [SerializeField]
     Vector3 moveSpeed;
@@ -17,7 +19,7 @@ public class NpcSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnTimer = spawnTime;
+        spawnTimer = spawnTime + Random.Range(-spawnTimeVariance, spawnTimeVariance);
     }
 
     // Update is called once per frame
@@ -27,13 +29,20 @@ public class NpcSpawner : MonoBehaviour
         if (spawnTimer <= 0)
         {
             SpawnNpc();
-            spawnTimer = spawnTime;
+            spawnTimer = spawnTime + Random.Range(-spawnTimeVariance, spawnTimeVariance);
         }
     }
 
     void SpawnNpc()
     {
         GameObject npc = Instantiate(npcPrefab, spawnPoint.position, spawnPoint.rotation);
-        npc.GetComponent<WalkForward>().moveSpeed = moveSpeed;
+        if(npc.GetComponent<WalkForward>() != null)
+        {
+npc.GetComponent<WalkForward>().moveSpeed = moveSpeed;
+        } else
+        if(npc.GetComponent<CarDriving>() != null)
+        {
+            npc.GetComponent<CarDriving>().moveSpeed = moveSpeed;
+        }
     }
 }
