@@ -57,7 +57,7 @@ public class CarDriving : MonoBehaviour
         transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, 0.1f);
         if (transform.localScale.x < 0.1f && transform.localScale.y < 0.1f && transform.localScale.z < 0.1f)
         {
-            transform.localScale = Vector3.zero;
+            transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
             Destroy(gameObject);
         }
     }
