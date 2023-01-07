@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{825f7c7b-eccf-4041-bb7a-14457725cea9}">
+		<property name="color">
+			<value>Red</value>
+		</property>
 		<property name="name">
 			<value>player_skid_loop</value>
 		</property>

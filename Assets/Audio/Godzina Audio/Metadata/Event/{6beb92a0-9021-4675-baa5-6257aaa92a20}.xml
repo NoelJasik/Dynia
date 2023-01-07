@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{6beb92a0-9021-4675-baa5-6257aaa92a20}">
+		<property name="color">
+			<value>Red</value>
+		</property>
 		<property name="name">
 			<value>player_hit_bump</value>
 		</property>
