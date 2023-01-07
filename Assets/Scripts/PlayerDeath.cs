@@ -19,13 +19,14 @@ public class PlayerDeath : MonoBehaviour
         {
             Die();
         }
+        Debug.Log(transform.rotation.eulerAngles.z);
         // If the player falls over, die
-        if(transform.rotation.z > 0.5 || transform.rotation.z < -0.5)
+        if((transform.rotation.eulerAngles.z > 80 && transform.rotation.eulerAngles.z < 200) || (transform.rotation.eulerAngles.z < -80 && transform.rotation.eulerAngles.z > -200))
         {
             Debug.Log("Player has died");
             Die();
         }
-        if(transform.rotation.x > 0.75 || transform.rotation.x < -0.75)
+        if((transform.rotation.eulerAngles.x > 100 && transform.rotation.eulerAngles.x < 220) || (transform.rotation.eulerAngles.x < -100 && transform.rotation.eulerAngles.x > -220))
         {
             Debug.Log("Player has died");
             Die();
