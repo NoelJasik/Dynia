@@ -89,9 +89,13 @@ public class WalkForward : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Obstacle")
         {
-            moveSpeed = Vector3.zero;
-            jumpForce = 0;
-            rb.freezeRotation = false;
+            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
+            if(rb.velocity.x > 5f || rb.velocity.z > 5f)
+            {
+                moveSpeed = Vector3.zero;
+                jumpForce = 0;
+                rb.freezeRotation = false;
+            }
         }
     }
 }
