@@ -24,11 +24,25 @@ public class WalkForward : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         jumpTimer = 0.1f;
         transform.localScale = new Vector3(0, 0, 0);
-                existanceTimer = existanceTime;
+        existanceTimer = existanceTime;
     }
 
     // Update is called once per frame
     void FixedUpdate()
+    {
+        if (existanceTimer > 0)
+        {
+            SpawnAnimation();
+        }
+        // destroy
+        existanceTimer -= Time.deltaTime;
+        if (existanceTimer <= 0)
+        {
+            DestroyAnimation();
+        }
+    }
+
+    void SpawnAnimation()
     {
         transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, 0.1f);
         if (transform.localScale.x > 0.9f && transform.localScale.y > 0.9f && transform.localScale.z > 0.9f)
@@ -42,12 +56,6 @@ public class WalkForward : MonoBehaviour
         else
         {
             Move();
-        }
-                // destroy
-        existanceTimer -= Time.deltaTime;
-        if (existanceTimer <= 0)
-        {
-            DestroyAnimation();
         }
     }
 
@@ -81,7 +89,6 @@ public class WalkForward : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Obstacle")
         {
-            rb.mass = 5;
             moveSpeed = Vector3.zero;
             jumpForce = 0;
             rb.freezeRotation = false;
