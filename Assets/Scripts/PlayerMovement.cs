@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         if (rb.velocity.y > -0.5f && rb.velocity.y < 0.5f)
         {
             Movement();
-            Stabilize();
+            //Stabilize();
         }
     }
 
