@@ -50,6 +50,8 @@ public class DeathManager : MonoBehaviour
     void Respawn()
     {
         player.transform.position = respawnPoint;
+        player.transform.rotation = new Quaternion(0, 0, 0, 0);
+        player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         player.SetActive(true);
         topDownCamera.player = player.transform;
         Invoke("HideRespawnEffect", respawnTime);
