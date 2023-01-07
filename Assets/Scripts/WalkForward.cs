@@ -75,13 +75,13 @@ public class WalkForward : MonoBehaviour
         if (moveSpeed != Vector3.zero)
         {
             rb.velocity = new Vector3(moveSpeed.x, rb.velocity.y, moveSpeed.z);
-        }
-        // jump
-        jumpTimer -= Time.deltaTime;
-        if (jumpTimer <= 0 && rb.velocity.y > -0.1f && rb.velocity.y < 0.1f)
-        {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            jumpTimer = jumpTime;
+            // jump
+            jumpTimer -= Time.deltaTime;
+            if (jumpTimer <= 0 && rb.velocity.y > -0.1f && rb.velocity.y < 0.1f)
+            {
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                jumpTimer = jumpTime;
+            }
         }
     }
 
@@ -90,7 +90,7 @@ public class WalkForward : MonoBehaviour
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Obstacle")
         {
             Rigidbody collisionRb = collision.gameObject.GetComponent<Rigidbody>();
-            if((collisionRb.velocity.x > 1f || collisionRb.velocity.z > 1f) &&  moveSpeed != Vector3.zero)
+            if ((collisionRb.velocity.x > 1f || collisionRb.velocity.z > 1f) && moveSpeed != Vector3.zero)
             {
                 Debug.Log("collision");
                 moveSpeed = Vector3.zero;
@@ -98,6 +98,17 @@ public class WalkForward : MonoBehaviour
                 jumpForce = 0;
                 rb.freezeRotation = false;
             }
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Obstacle" && moveSpeed != Vector3.zero)
+        {
+            Debug.Log("collision");
+            jumpForce = 0;
+            rb.freezeRotation = false;
+            rb.AddTorque(new Vector3(0, 0, -1000));
+                        moveSpeed = Vector3.zero;
         }
     }
 }
