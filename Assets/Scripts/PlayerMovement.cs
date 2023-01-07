@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float rotationSpeed = 90.0f;
 
+    [SerializeField]
+    GameObject[] movementEffect;
+
     // Reference to the car's rigidbody component
     Rigidbody rb;
 
@@ -46,6 +49,15 @@ public class PlayerMovement : MonoBehaviour
 
         // Get input from the vertical axis
         float verticalInput = Input.GetAxis("Vertical");
+
+        // If the player is moving forward, spawn a particle effect
+        if (verticalInput > 0)
+        {
+            foreach (GameObject particle in movementEffect)
+            {
+                particle.SetActive(true);
+            }
+        }
 
         // If the current speed is less than the maximum speed, apply a force in the forward direction based on the input
         if (currentSpeed < maxSpeed)
