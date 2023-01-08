@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (rb.velocity.y > -0.5f && rb.velocity.y < 0.5f)
+        if (rb.velocity.y > -2f && rb.velocity.y < 2f)
         {
             Movement();
         }

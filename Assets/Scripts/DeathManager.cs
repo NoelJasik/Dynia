@@ -17,10 +17,12 @@ public class DeathManager : MonoBehaviour
     [SerializeField]
     GameObject player;
 
+    Rigidbody rb;
+
     // Start is called before the first frame update
     void Start()
     {
-
+rb = player.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -50,9 +52,11 @@ public class DeathManager : MonoBehaviour
     void Respawn()
     {
         player.GetComponent<PlayerDeath>().startSpawnInvincibility();
-        player.transform.position = respawnPoint;
+        player.transform.position = new Vector3(respawnPoint.x, respawnPoint.y + 0.5f, respawnPoint.z);
         player.transform.rotation = new Quaternion(0, 0, 0, 0);
-        player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        rb.velocity = new Vector3(0, 0, 0);
+        rb.angularVelocity = new Vector3(0, 0, 0);
+        rb.freezeRotation = true;
         player.SetActive(true);
         topDownCamera.player = player.transform;
         Invoke("HideRespawnEffect", respawnTime);
@@ -61,5 +65,6 @@ public class DeathManager : MonoBehaviour
     void HideRespawnEffect()
     {
         respawnEffect.SetActive(false);
+        rb.freezeRotation = false;
     }
 }
