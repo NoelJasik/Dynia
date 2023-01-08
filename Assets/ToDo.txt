@@ -10,12 +10,11 @@
 13. Add a ending screen
 14. finish the level
 15. planks you need to walk over to get to the other side
-16. Graphics settings
+16. Graphics settings - done
 17. implement audio
 18 implement art
-19. pause screen
-20. volume slider
-21. Graphics settings
+19. pause screen - done
+20. volume slider - done
 
 Sections for the level
 first street, filled with holes, driving cars and pepole
