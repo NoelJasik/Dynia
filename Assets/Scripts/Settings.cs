@@ -12,7 +12,7 @@ public class Settings : MonoBehaviour
 [SerializeField]
 Slider volumeSlider;
 
-FMOD.Studio.Bus masterBus;
+FMOD.Studio.VCA gameplayBus;
 float volume = 1.0f;
 
 
@@ -20,15 +20,14 @@ float volume = 1.0f;
     void Start()
     {
         resolutionDropdown.value = QualitySettings.GetQualityLevel();
-        masterBus = FMODUnity.RuntimeManager.GetBus("bus:/Gameplay");
-        volume = (float)masterBus.getVolume(out volume);
+        gameplayBus = FMODUnity.RuntimeManager.GetVCA("vca:/Gameplay");
         volumeSlider.value = volume;
     }
 
     // Update is called once per frame
     void Update()
     {
-                masterBus.setVolume(volume);
+                gameplayBus.setVolume(volume);
     }
 
     public void SetQuality()
