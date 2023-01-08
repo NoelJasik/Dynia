@@ -20036,4 +20036,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: {x: 0, y: 0, z: 0}
-  existanceTime: 100
+  existanceTime: 40

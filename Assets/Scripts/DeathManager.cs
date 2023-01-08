@@ -49,6 +49,7 @@ public class DeathManager : MonoBehaviour
 
     void Respawn()
     {
+        player.GetComponent<PlayerDeath>().startSpawnInvincibility();
         player.transform.position = respawnPoint;
         player.transform.rotation = new Quaternion(0, 0, 0, 0);
         player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);

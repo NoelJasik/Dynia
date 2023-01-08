@@ -12,6 +12,8 @@ public class PlayerDeath : MonoBehaviour
     [SerializeField]
     float invincibilityTime = 2f;
 
+    float invincibilityTimer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,19 +22,30 @@ public class PlayerDeath : MonoBehaviour
 
     }
 
+    public void startSpawnInvincibility()
+    {
+        spawnInvincibility = true;
+        invincibilityTimer = invincibilityTime;
+    }
+
     // Update is called once per frame
     void Update()
     {
         if(spawnInvincibility)
         {
-            invincibilityTime -= Time.deltaTime;
-            if(invincibilityTime <= 0)
+            invincibilityTimer -= Time.deltaTime;
+            if(invincibilityTimer <= 0)
             {
                 spawnInvincibility = false;
             } else
             {
                 return;
             }
+        }
+        // If the player presses R, die
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            deathManager.Die();
         }
         // If the player falls off the map, die
         if (transform.position.y < -10)

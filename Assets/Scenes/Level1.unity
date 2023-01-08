@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 28703635}
   - component: {fileID: 28703638}
   - component: {fileID: 28703637}
+  - component: {fileID: 28703639}
   m_Layer: 6
   m_Name: Asphalt
   m_TagString: Untagged
@@ -314,6 +315,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28703634}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &28703639
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28703634}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &36598160
 GameObject:
@@ -853,6 +868,14 @@ PrefabInstance:
     - target: {fileID: 2779651379883856643, guid: b6fe046331566d70b88f1ec1a573099f, type: 3}
       propertyPath: m_text
       value: Don't fall over
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779651379883856643, guid: b6fe046331566d70b88f1ec1a573099f, type: 3}
+      propertyPath: m_fontSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779651379883856643, guid: b6fe046331566d70b88f1ec1a573099f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6fe046331566d70b88f1ec1a573099f, type: 3}
@@ -7866,6 +7889,7 @@ GameObject:
   - component: {fileID: 787167638}
   - component: {fileID: 787167641}
   - component: {fileID: 787167640}
+  - component: {fileID: 787167642}
   m_Layer: 6
   m_Name: Sidewalk
   m_TagString: Untagged
@@ -7937,6 +7961,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787167637}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &787167642
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787167637}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &799390027 stripped
 Transform:
@@ -19276,6 +19314,7 @@ GameObject:
   - component: {fileID: 1307184649}
   - component: {fileID: 1307184652}
   - component: {fileID: 1307184651}
+  - component: {fileID: 1307184653}
   m_Layer: 6
   m_Name: Sidewalk (1)
   m_TagString: Untagged
@@ -19347,6 +19386,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307184648}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &1307184653
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307184648}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1313454726 stripped
 Transform:
@@ -26641,7 +26694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6535073239099667818, guid: a0ae99d31a918d14f8c68cc7b27f365c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.81
+      value: -10.9
       objectReference: {fileID: 0}
     - target: {fileID: 6535073239099667818, guid: a0ae99d31a918d14f8c68cc7b27f365c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -26849,6 +26902,22 @@ PrefabInstance:
     - target: {fileID: 2779651379806484471, guid: b6fe046331566d70b88f1ec1a573099f, type: 3}
       propertyPath: m_Name
       value: Billboard
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779651379883856643, guid: b6fe046331566d70b88f1ec1a573099f, type: 3}
+      propertyPath: m_text
+      value: 'Move With:
+
+        WASD / Arrow Keys
+
+        Sudoku: R'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779651379883856643, guid: b6fe046331566d70b88f1ec1a573099f, type: 3}
+      propertyPath: m_fontSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779651379883856643, guid: b6fe046331566d70b88f1ec1a573099f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6fe046331566d70b88f1ec1a573099f, type: 3}
