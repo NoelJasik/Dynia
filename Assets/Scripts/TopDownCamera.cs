@@ -18,5 +18,6 @@ public class TopDownCamera : MonoBehaviour
     {
         // Set the camera's position to the player's position plus the offset 
         transform.position = player.position + offset;        
+        
     }
 }

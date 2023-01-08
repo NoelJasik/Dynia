@@ -9,11 +9,11 @@ public class Settings : MonoBehaviour
     [SerializeField]
     TMP_Dropdown resolutionDropdown;
 
-[SerializeField]
-Slider volumeSlider;
+    [SerializeField]
+    Slider volumeSlider;
 
-FMOD.Studio.VCA gameplayBus;
-float volume = 1.0f;
+    FMOD.Studio.VCA gameplayBus;
+    float volume = 1.0f;
 
 
     // Start is called before the first frame update
@@ -27,7 +27,7 @@ float volume = 1.0f;
     // Update is called once per frame
     void Update()
     {
-                gameplayBus.setVolume(volume);
+        gameplayBus.setVolume(volume);
     }
 
     public void SetQuality()
