@@ -1,16 +1,19 @@
 1. PlayerMovement - done
 2. PlayerDeath - done
 3. Particle effects - done (need a lil fix)
-4. Add checkpoints
-5. Add riding cars
+4. Add checkpoints - done
+5. Add riding cars - done
 6. Add crates that fall over when you get close
-7. Add a dog that jumps at you
-8. Add holes in the ground you can fall into
 9. Add barriers and crates
-10. Add kids that throw frizzbess (those flying disks) at eachother
-11. Add Npcs walking around (optional)
+11. Add Npcs walking around -done
 12. Add Main menu
 13. Add a ending screen
+14. finish the level
+15. planks you need to walk over to get to the other side
+16. Graphics settings
+17. implement audio
+18 implement art
+19. pause screen
 
 Sections for the level
 first street, filled with holes, driving cars and pepole
