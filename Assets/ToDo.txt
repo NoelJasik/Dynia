@@ -1,6 +1,6 @@
 1. PlayerMovement - done
 2. PlayerDeath - done
-3. Particle effects - done (need a lil fix)
+3. Particle effects - done
 4. Add checkpoints - done
 5. Add riding cars - done
 6. Add crates that fall over when you get close
@@ -14,6 +14,8 @@
 17. implement audio
 18 implement art
 19. pause screen
+20. volume slider
+21. Graphics settings
 
 Sections for the level
 first street, filled with holes, driving cars and pepole

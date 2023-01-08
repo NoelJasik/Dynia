@@ -17,7 +17,10 @@ public class PlayerMovement : MonoBehaviour
     float rotationSpeed = 90.0f;
 
     [SerializeField]
-    GameObject[] movementEffect;
+    ParticleSystem[] movementEffect;
+
+    [SerializeField]
+    GameObject soundEffectForMovement;
 
     // Reference to the car's rigidbody component
     Rigidbody rb;
@@ -30,31 +33,59 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (rb.velocity.y > -1f && rb.velocity.y < 1f)
+        if (rb.velocity.y > -2f && rb.velocity.y < 2f)
         {
             Movement();
+        }
+        if (rb.velocity.y > 5f || rb.velocity.y < -5)
+        {
+            foreach (ParticleSystem particle in movementEffect)
+            {
+                if (particle.isPlaying)
+                {
+                    particle.Stop();
+                    soundEffectForMovement.SetActive(false);
+                }
+            }
         }
     }
 
     void Movement()
     {
+
+
         // Get input from the horizontal axis
         float horizontalInput = Input.GetAxis("Horizontal");
 
         // Calculate the current speed of the car
         float currentSpeed = rb.velocity.magnitude;
 
+        // If the player is moving forward, spawn a particle effect
+        foreach (ParticleSystem particle in movementEffect)
+        {
+            if (currentSpeed > 1.0f && rb.velocity.y < 5f && rb.velocity.y > -5f)
+            {
+                if (!particle.isPlaying)
+                {
+                    particle.Play();
+                    soundEffectForMovement.SetActive(true);
+                }
+            }
+            else
+            {
+                if (particle.isPlaying)
+                {
+                    particle.Stop();
+                    soundEffectForMovement.SetActive(false);
+                }
+            }
+        }
+
         // Rotate the car based on the speed and input
         rb.MoveRotation(rb.rotation * Quaternion.Euler(0, rotationSpeed * horizontalInput * Time.deltaTime * currentSpeed / maxSpeed, 0));
 
         // Get input from the vertical axis
         float verticalInput = Input.GetAxis("Vertical");
-
-        // If the player is moving forward, spawn a particle effect
-        foreach (GameObject particle in movementEffect)
-        {
-            particle.SetActive(currentSpeed > 1.0f);
-        }
 
         // If the current speed is less than the maximum speed, apply a force in the forward direction based on the input
         if (currentSpeed < maxSpeed)
