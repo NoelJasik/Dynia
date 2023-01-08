@@ -17,13 +17,13 @@ public class PauseManager : MonoBehaviour
             {
                 Time.timeScale = 0;
                 pauseMenu.SetActive(true);
-                 FMODUnity.RuntimeManager.MuteAllEvents(true);
+                // FMODUnity.RuntimeManager.MuteAllEvents(true);
             }
             else
             {
                 Time.timeScale = 1;
                 pauseMenu.SetActive(false);
-                 FMODUnity.RuntimeManager.MuteAllEvents(false);
+                // FMODUnity.RuntimeManager.MuteAllEvents(false);
 
             }
         }

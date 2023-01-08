@@ -20,7 +20,7 @@ float volume = 1.0f;
     void Start()
     {
         resolutionDropdown.value = QualitySettings.GetQualityLevel();
-        masterBus = FMODUnity.RuntimeManager.GetBus("bus:/");
+        masterBus = FMODUnity.RuntimeManager.GetBus("bus:/Gameplay");
         volume = (float)masterBus.getVolume(out volume);
         volumeSlider.value = volume;
     }
