@@ -105,6 +105,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{5ccab273-6e59-4701-a667-89bdb6f4fac2}">
+		<property name="volume">
+			<value>-8.5</value>
+		</property>
 		<relationship name="modulators">
 			<destination>{1bced5ec-2098-4111-80f9-634b4209e1c9}</destination>
 		</relationship>
@@ -231,7 +234,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{001c87c3-b196-49e1-8fe2-e18afa77d0f8}">
 		<property name="volume">
-			<value>-3</value>
+			<value>-7.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 3</value>
