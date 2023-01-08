@@ -346,7 +346,7 @@ MonoBehaviour:
   EncryptionKey: 
   ImportType: 0
   TargetAssetPath: FMODBanks
-  TargetBankFolder: 
+  TargetBankFolder: Assets/Audio/GodzinaAudio/Metadata/Bank
   EventLinkage: 0
   LoggingLevel: 2
   SpeakerModeSettings: []
@@ -358,7 +358,8 @@ MonoBehaviour:
   VirtualChannelSettings: []
   RealChannelSettings: []
   Plugins: []
-  MasterBanks: []
+  MasterBanks:
+  - Master
   Banks: []
   BanksToLoad: []
   LiveUpdatePort: 9264

@@ -8398,6 +8398,7 @@ GameObject:
   - component: {fileID: 813580037}
   - component: {fileID: 813580039}
   - component: {fileID: 813580038}
+  - component: {fileID: 813580040}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -13208,6 +13209,36 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &813580040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813580036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1794611497
+      Data2: 1256142986
+      Data3: -127197773
+      Data4: 1063875002
+    Path: event:/SFX/player_run_loop
+  Event: 
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 10
+  OverrideMaxDistance: 20
 --- !u!1001 &816964002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21876,6 +21907,7 @@ GameObject:
   - component: {fileID: 1919070772}
   - component: {fileID: 1919070774}
   - component: {fileID: 1919070773}
+  - component: {fileID: 1919070775}
   m_Layer: 7
   m_Name: Particle System (1)
   m_TagString: Untagged
@@ -26686,6 +26718,24 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &1919070775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919070771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadEvent: 7
+  UnloadEvent: 8
+  Banks:
+  - Master.strings
+  CollisionTag: 
+  PreloadSamples: 0
 --- !u!1001 &1949870679
 PrefabInstance:
   m_ObjectHideFlags: 0
