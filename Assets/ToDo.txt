@@ -15,8 +15,3 @@
 18 implement art
 19. pause screen - done
 20. volume slider - done
-
-Sections for the level
-first street, filled with holes, driving cars and pepole
-second park, with dogs and playing kids, and less level terrain
-third market, filled with crates that fall over, cars and more pepole and more props
