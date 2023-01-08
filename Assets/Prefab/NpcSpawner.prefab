@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5320722c630e2942797434286c43bb37, type: 2}
+  - {fileID: 2100000, guid: 07d9cc0e0e8eaa705bb0762314690f87, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcPrefab: {fileID: 5668140046785391846, guid: e918a4f02fc5d5c5eaa2aee080505088, type: 3}
   spawnTime: 2
+  spawnTimeVariance: 0
   spawnPoint: {fileID: 7870805821651402890}
   moveSpeed: {x: 10, y: 0, z: 0}
 --- !u!1 &6037218837897522586

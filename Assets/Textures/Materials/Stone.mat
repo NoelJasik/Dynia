@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SideWalk
+  m_Name: Stone
   m_Shader: {fileID: -6465566751694194690, guid: a851315f04ee76013b2bf1e62268b2a8, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -62,7 +62,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: 8207348719e4b68088f896ca153f38a8, type: 3}
+        m_Texture: {fileID: 2800000, guid: c506ebfab876a533d842c1dc1f418f31, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -121,7 +121,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Tilling: 1
+    - _Tilling: 0.5
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
