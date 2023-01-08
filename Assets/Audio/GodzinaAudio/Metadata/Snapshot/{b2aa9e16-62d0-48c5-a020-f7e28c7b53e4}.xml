@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="Snapshot" id="{b2aa9e16-62d0-48c5-a020-f7e28c7b53e4}">
+		<property name="name">
+			<value>Pause</value>
+		</property>
+		<relationship name="mixer">
+			<destination>{c7a19cdf-1fc6-4b2a-8d69-331e18d6aede}</destination>
+		</relationship>
+		<relationship name="automatableProperties">
+			<destination>{db1fad29-7f62-4e3b-9ae3-0445edb9122c}</destination>
+		</relationship>
+		<relationship name="markerTracks">
+			<destination>{a9bdfe92-9dee-49b8-9cea-2d7479e8dafa}</destination>
+		</relationship>
+		<relationship name="timeline">
+			<destination>{0dbbdf74-efb4-446b-bda5-c3e38c872879}</destination>
+		</relationship>
+		<relationship name="snapshotMasterTrack">
+			<destination>{f7631bd0-c04f-4e6d-8888-52988e0b12d1}</destination>
+		</relationship>
+		<relationship name="snapshotProperties">
+			<destination>{4cb00efd-dcf9-459e-8a48-827041ef3d70}</destination>
+		</relationship>
+		<relationship name="snapshotTracks">
+			<destination>{734927ed-62e3-4c56-8f10-bcd710eb2682}</destination>
+		</relationship>
+	</object>
+	<object class="EventAutomatableProperties" id="{db1fad29-7f62-4e3b-9ae3-0445edb9122c}" />
+	<object class="MarkerTrack" id="{a9bdfe92-9dee-49b8-9cea-2d7479e8dafa}" />
+	<object class="Timeline" id="{0dbbdf74-efb4-446b-bda5-c3e38c872879}" />
+	<object class="SnapshotMasterTrack" id="{f7631bd0-c04f-4e6d-8888-52988e0b12d1}" />
+	<object class="SnapshotProperty" id="{4cb00efd-dcf9-459e-8a48-827041ef3d70}">
+		<property name="propertyName">
+			<value>volume</value>
+		</property>
+		<property name="value">
+			<value>-80</value>
+		</property>
+		<relationship name="automatableObject">
+			<destination>{da792002-3553-4c8c-b96d-db4abd5fa39b}</destination>
+		</relationship>
+	</object>
+	<object class="SnapshotTrack" id="{734927ed-62e3-4c56-8f10-bcd710eb2682}">
+		<relationship name="mixerStrip">
+			<destination>{da792002-3553-4c8c-b96d-db4abd5fa39b}</destination>
+		</relationship>
+	</object>
+</objects>

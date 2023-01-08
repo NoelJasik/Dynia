@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="SnapshotList" id="{fbb539d6-9f63-4140-90f7-d348234df377}">
-		<relationship name="items">
-			<destination>{b2aa9e16-62d0-48c5-a020-f7e28c7b53e4}</destination>
+	<object class="MixerVCA" id="{41fc0647-e0d3-4ea3-badc-370d859bf6dc}">
+		<property name="name">
+			<value>Gameplay</value>
+		</property>
+		<relationship name="masters">
+			<destination>{b2e5c747-a7a9-4912-8678-869cb3cdd1b6}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{c7a19cdf-1fc6-4b2a-8d69-331e18d6aede}</destination>

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{6beb92a0-9021-4675-baa5-6257aaa92a20}">
-		<property name="color">
-			<value>Red</value>
-		</property>
 		<property name="name">
 			<value>player_hit_bump_up</value>
 		</property>
@@ -62,7 +59,7 @@
 			<destination>{b6b4e306-c74b-4bfd-b626-2b874302fd24}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{f76d3b4f-b942-4986-8424-a5a5fb5b130b}</destination>
+			<destination>{da792002-3553-4c8c-b96d-db4abd5fa39b}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{dcf21ae7-e389-4c8b-9809-7dc656ed9f61}" />
