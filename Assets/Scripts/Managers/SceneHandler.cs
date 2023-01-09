@@ -21,12 +21,14 @@ public class SceneHandler : MonoBehaviour
        startFadePanel.SetActive(true);        
        Invoke("hideScene", fadeTime);
        Time.timeScale = 1;
+       if(FindObjectOfType<PauseManager>() != null)
        pauseManager = FindObjectOfType<PauseManager>();
     }
 
     void hideScene()
     {
         startFadePanel.SetActive(false);
+        if(pauseManager != null)
         pauseManager.canPause = true;
     }
 

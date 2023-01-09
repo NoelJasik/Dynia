@@ -1315,7 +1315,6 @@ GameObject:
   - component: {fileID: 698900220}
   - component: {fileID: 698900219}
   - component: {fileID: 698900218}
-  - component: {fileID: 698900221}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
@@ -1382,36 +1381,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &698900221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698900217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1297441258
-      Data2: 1220895440
-      Data3: -487120736
-      Data4: -464290932
-    Path: snapshot:/Pause
-  Event: 
-  PlayEvent: 11
-  StopEvent: 12
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2403,7 +2372,6 @@ GameObject:
   - component: {fileID: 923988430}
   - component: {fileID: 923988429}
   - component: {fileID: 923988428}
-  - component: {fileID: 923988433}
   - component: {fileID: 923988434}
   - component: {fileID: 923988435}
   m_Layer: 5
@@ -2498,20 +2466,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &923988433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 923988427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d5df0812bf15a4f6b79f667e4849289, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 698900217}
-  canPause: 0
 --- !u!114 &923988434
 MonoBehaviour:
   m_ObjectHideFlags: 0
