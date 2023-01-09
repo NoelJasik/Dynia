@@ -11351,7 +11351,7 @@ GameObject:
   - component: {fileID: 776312931}
   - component: {fileID: 776312933}
   m_Layer: 0
-  m_Name: Wheel
+  m_Name: WheelR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24871,7 +24871,7 @@ GameObject:
   - component: {fileID: 1236366144}
   - component: {fileID: 1236366146}
   m_Layer: 0
-  m_Name: Wheel
+  m_Name: WheelL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34828,6 +34828,7 @@ GameObject:
   - component: {fileID: 2065905455}
   - component: {fileID: 2065905459}
   - component: {fileID: 2065905460}
+  - component: {fileID: 2065905461}
   m_Layer: 0
   m_Name: ---Player---
   m_TagString: Player
@@ -34920,6 +34921,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnInvincibility: 0
   invincibilityTime: 2
+--- !u!95 &2065905461
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065905452}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d6c36196c4fff1d3485f4e9a68a20eed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &2080390246
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -24,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
 
     bool isTouchingGround = false;
 
+    // Refrence the animator
+    Animator anim;
+
     // Reference to the car's rigidbody component
     Rigidbody rb;
 
@@ -31,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
     {
         // Get the rigidbody component
         rb = GetComponent<Rigidbody>();
+        // Get the animator component
+        anim = GetComponent<Animator>();
+                    anim.Play("WheelsRide");
     }
 
     void FixedUpdate()
@@ -42,6 +48,13 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             AirMovement();
+        }
+        if(rb.velocity.magnitude > 0.1f || rb.velocity.magnitude < -0.1f)
+        {
+            anim.speed = rb.velocity.magnitude / maxSpeed;
+        } else
+        {
+            anim.speed = 0;
         }
         if (rb.velocity.y > 5f || rb.velocity.y < -5)
         {
