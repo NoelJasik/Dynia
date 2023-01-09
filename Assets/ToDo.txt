@@ -3,15 +3,14 @@
 3. Particle effects - done
 4. Add checkpoints - done
 5. Add riding cars - done
-6. Add crates that fall over when you get close
 9. Add barriers and crates - done
 11. Add Npcs walking around -done
 12. Add Main menu - done
-13. Add a ending screen
-14. finish the level
+13. Add a ending screen - done
+14. finish the level - done
 15. planks you need to walk over to get to the other side - done
 16. Graphics settings - done
-17. implement audio
-18 implement art
+17. implement audio - done
+18 implement art - done
 19. pause screen - done
 20. volume slider - done
