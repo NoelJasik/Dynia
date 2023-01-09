@@ -1,2 +1,15 @@
 # Dynia
-A video game for the ludum dare 52
+Sell your harvest and get that moni
+
+## Authors
+
+Noel Jasik - Programming
+
+Nathan Blackwood aka “blekvoot” - Art
+
+Zkassai - Music && Sfx
+
+## Post Submission updates:
+1. Desktop Builds
+2. Fixed the volume slider not working
+3. Added icon for the game
