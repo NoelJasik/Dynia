@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2779651378409173269}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.12, y: 0, z: 0}
-  m_LocalScale: {x: 0.2114, y: 6, z: 15}
+  m_LocalScale: {x: 0.2114, y: 6, z: 12}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2779651379806484464}
@@ -135,7 +135,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0.25}
-  m_SizeDelta: {x: 14, y: 5}
+  m_SizeDelta: {x: 10, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2779651378747438464
 Canvas:
@@ -225,7 +225,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2779651379107272546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.13, y: -5.41, z: -6}
+  m_LocalPosition: {x: 0.13, y: -5.41, z: -4.5}
   m_LocalScale: {x: 0.2114, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -323,7 +323,7 @@ Transform:
   m_GameObject: {fileID: 2779651379376262975}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.23, y: -2.5, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 15}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 12}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2779651379806484464}
@@ -592,7 +592,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2779651379954174647}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.13, y: -5.41, z: 6}
+  m_LocalPosition: {x: 0.13, y: -5.41, z: 4.5}
   m_LocalScale: {x: 0.2114, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

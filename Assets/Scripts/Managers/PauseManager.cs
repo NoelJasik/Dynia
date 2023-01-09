@@ -8,10 +8,12 @@ public class PauseManager : MonoBehaviour
     [SerializeField]
     GameObject pauseMenu;
 
+    public bool canPause = false;
+
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && canPause)
         {
             if (Time.timeScale == 1)
             {
