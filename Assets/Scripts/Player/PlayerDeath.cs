@@ -58,7 +58,7 @@ public class PlayerDeath : MonoBehaviour
             Debug.Log("Player has died");
             deathManager.Die();
         }
-        if ((transform.rotation.eulerAngles.x > 100 && transform.rotation.eulerAngles.x < 300) || (transform.rotation.eulerAngles.x < -100 && transform.rotation.eulerAngles.x > -300))
+        if ((transform.rotation.eulerAngles.x > 140 && transform.rotation.eulerAngles.x < 300) || (transform.rotation.eulerAngles.x < -140 && transform.rotation.eulerAngles.x > -300))
         {
             Debug.Log("Player has died");
             deathManager.Die();

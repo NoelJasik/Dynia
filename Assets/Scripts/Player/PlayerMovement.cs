@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     GameObject soundEffectForMovement;
 
+    bool isTouchingGround = false;
+
     // Reference to the car's rigidbody component
     Rigidbody rb;
 
@@ -37,6 +39,10 @@ public class PlayerMovement : MonoBehaviour
         {
             Movement();
         }
+        else
+        {
+            AirMovement();
+        }
         if (rb.velocity.y > 5f || rb.velocity.y < -5)
         {
             foreach (ParticleSystem particle in movementEffect)
@@ -48,6 +54,14 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+    }
+
+    void AirMovement()
+    {
+        float horiztontalInput = Input.GetAxis("Horizontal");
+       // float verticalInput = Input.GetAxis("Vertical");
+
+        rb.MoveRotation(rb.rotation * Quaternion.Euler(0, rotationSpeed * horiztontalInput * Time.deltaTime * 0.5f, 0));
     }
 
     void Movement()
@@ -96,6 +110,21 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    void OnCollisionEnter(Collision other)
+    {
+     isTouchingGround = true;   
+    }
+    void OnCollisionStay(Collision other)
+    {
+        isTouchingGround = true;
+    }
+    void OnCollisionExit(Collision other)
+    {
+        isTouchingGround = false;
+    }
+
 }
+
+
 
 
