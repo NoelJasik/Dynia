@@ -9,11 +9,17 @@ public class CheckPoint : MonoBehaviour
     
     [SerializeField]
     Transform checkpointSpawnPoint;
+    [SerializeField]
+    bool startHere;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         deathManager = FindObjectOfType<DeathManager>();
+        if(startHere)
+        {
+            deathManager.SetCheckpoint(checkpointSpawnPoint.position);
+        }
     }
 
     // Update is called once per frame
