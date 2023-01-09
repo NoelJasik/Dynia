@@ -49,13 +49,7 @@ public class PlayerMovement : MonoBehaviour
         {
             AirMovement();
         }
-        if(rb.velocity.magnitude > 0.1f || rb.velocity.magnitude < -0.1f)
-        {
-            anim.speed = rb.velocity.magnitude / maxSpeed;
-        } else
-        {
-            anim.speed = 0;
-        }
+          anim.speed = rb.velocity.magnitude / maxSpeed;
         if (rb.velocity.y > 5f || rb.velocity.y < -5)
         {
             foreach (ParticleSystem particle in movementEffect)
