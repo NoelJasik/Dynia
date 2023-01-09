@@ -79,6 +79,10 @@ public class CarDriving : MonoBehaviour
                 moveSpeed = Vector3.zero;
                 rb.velocity = new Vector3(rb.velocity.x * 0.5f, rb.velocity.y, rb.velocity.z * 0.5f);
         }
+        if(collision.gameObject.tag == "Player")
+        {
+            rb.velocity = new Vector3(rb.velocity.x * 1.5f, rb.velocity.y, rb.velocity.z * 1.5f);
+        }
          if(collision.gameObject.tag == "End")
         {
             DestroyAnimation();
