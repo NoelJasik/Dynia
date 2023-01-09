@@ -175,7 +175,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 57ab78ed90d38cd68b73f60f3ba5d71d, type: 2}
+  - {fileID: 2100000, guid: 6cf0563e4bb2d0a6fb3497b2e84a9cae, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -364,3 +364,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkpointSpawnPoint: {fileID: 2363177234420035391}
+  startHere: 0
