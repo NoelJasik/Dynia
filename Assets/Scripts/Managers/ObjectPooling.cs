@@ -15,6 +15,14 @@ public class ObjectPooling : MonoBehaviour
     void Start()
     {
         Transform[] allChildren = GetComponentsInChildren<Transform>();
+        if(QualitySettings.GetQualityLevel() == 0)
+        {
+            distanceToDeactivate *= 0.8f;
+        } else if (QualitySettings.GetQualityLevel() == 2)
+        {
+            distanceToDeactivate *= 1.5f;
+        } 
+         
         pooledObjects = new List<GameObject>();
         // Starts from 1 to avoid adding the parent object as a pooled object
         for(int i = 1; i < allChildren.Length; i++)
