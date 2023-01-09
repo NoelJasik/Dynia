@@ -16,15 +16,17 @@ public class CheckPoint : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         deathManager = FindObjectOfType<DeathManager>();
-        if(startHere)
-        {
-            deathManager.SetCheckpoint(checkpointSpawnPoint.position);
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(startHere)
+        {
+            deathManager.SetCheckpoint(checkpointSpawnPoint.position);
+            deathManager.Die();
+            startHere = false;
+        }
         if(checkpointSpawnPoint.position != deathManager.respawnPoint)
         {
             anim.Play("Unused");
