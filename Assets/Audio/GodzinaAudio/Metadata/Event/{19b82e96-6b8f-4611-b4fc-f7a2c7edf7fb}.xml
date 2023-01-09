@@ -57,8 +57,20 @@
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{e01db002-736f-49d3-8fda-14087fc5003c}">
+		<property name="maxVoices">
+			<value>3</value>
+		</property>
+		<property name="voiceStealing">
+			<value>1</value>
+		</property>
 		<property name="dopplerEnabled">
 			<value>true</value>
+		</property>
+		<property name="dopplerScale">
+			<value>40</value>
+		</property>
+		<property name="maximumDistance">
+			<value>9.40000057</value>
 		</property>
 	</object>
 	<object class="MarkerTrack" id="{7a83b71a-9a7a-412e-b147-53758ec89a73}" />
@@ -79,6 +91,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{2c7c1f2b-28a9-4f93-bf8b-5f07c5d573bc}">
+		<property name="volume">
+			<value>10</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{a9418ef7-8b7e-40a4-baee-0e0bdb3236e5}</destination>
 		</relationship>
@@ -99,9 +114,6 @@
 		<property name="isAsync">
 			<value>true</value>
 		</property>
-		<property name="start">
-			<value>0.073891625615763568</value>
-		</property>
 		<property name="length">
 			<value>1.9261083743842367</value>
 		</property>
@@ -120,6 +132,9 @@
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{08467201-28da-4482-bd9b-b8795a1e1822}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{eac1c5d9-7016-461e-854a-dc8ab86e3ad3}</destination>
 		</relationship>
@@ -132,7 +147,7 @@
 	</object>
 	<object class="LoopRegion" id="{162f4d01-c872-4ff7-a62a-da9489a45b75}">
 		<property name="position">
-			<value>0.073891625615763568</value>
+			<value>0</value>
 		</property>
 		<property name="length">
 			<value>1.9261083743842364</value>
@@ -179,6 +194,23 @@
 			<destination>{a9ed7d19-eac6-403f-9997-55bb03b04805}</destination>
 		</relationship>
 	</object>
+	<object class="ADSRModulator" id="{08467201-28da-4482-bd9b-b8795a1e1822}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackTime">
+			<value>100</value>
+		</property>
+		<property name="releaseTime">
+			<value>100</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{eac1c5d9-7016-461e-854a-dc8ab86e3ad3}">
 		<relationship name="effects">
 			<destination>{a2879b30-4af7-497a-99f3-2c811c755d11}</destination>
@@ -186,6 +218,13 @@
 	</object>
 	<object class="MixerBusPanner" id="{47f2bcb9-6e70-4d0a-a93b-ba2168060a04}" />
 	<object class="MixerBusFader" id="{7f6b9aea-b48c-4df4-a701-7e191c3159e4}" />
-	<object class="SpatialiserEffect" id="{5535fd99-7635-4c61-9741-e5da46ec65b3}" />
+	<object class="SpatialiserEffect" id="{5535fd99-7635-4c61-9741-e5da46ec65b3}">
+		<property name="distanceRolloffType">
+			<value>2</value>
+		</property>
+		<property name="maximumDistance">
+			<value>9.40000057</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{a2879b30-4af7-497a-99f3-2c811c755d11}" />
 </objects>

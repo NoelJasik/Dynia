@@ -14,6 +14,7 @@ public class Settings : MonoBehaviour
 
     FMOD.Studio.VCA gameplayBus;
             FMOD.Studio.VCA UI;
+            FMOD.Studio.VCA musicBus;
     float volume = 1.0f;
 
 
@@ -23,6 +24,7 @@ public class Settings : MonoBehaviour
         resolutionDropdown.value = QualitySettings.GetQualityLevel();
         gameplayBus = FMODUnity.RuntimeManager.GetVCA("vca:/Gameplay");
         UI = FMODUnity.RuntimeManager.GetVCA("vca:/UI");
+        musicBus = FMODUnity.RuntimeManager.GetVCA("vca:/Music");
         UI.getVolume(out float startVolume);
         volume = startVolume;
         volumeSlider.value = volume;
@@ -33,6 +35,7 @@ public class Settings : MonoBehaviour
     {
         gameplayBus.setVolume(volume);
         UI.setVolume(volume);
+        musicBus.setVolume(volume * 0.75f);
     }
 
     public void SetQuality()
