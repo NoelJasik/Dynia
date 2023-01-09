@@ -20,10 +20,15 @@ public class PlayerMovement : MonoBehaviour
     ParticleSystem[] movementEffect;
 
     [SerializeField]
-    GameObject soundEffectForMovement;
+    FMODUnity.EventReference movementSound;
+
+    FMOD.Studio.EventInstance movementSoundInstance;
+    [SerializeField]
+    FMOD.ATTRIBUTES_3D attributes;
+
+    bool playMovementSound = false;
 
     bool isTouchingGround = false;
-
     // Refrence the animator
     Animator anim;
 
@@ -36,7 +41,11 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         // Get the animator component
         anim = GetComponent<Animator>();
-                    anim.Play("WheelsRide");
+        anim.Play("WheelsRide");
+        movementSoundInstance = FMODUnity.RuntimeManager.CreateInstance(movementSound);
+        // movementSoundInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        movementSoundInstance.set3DAttributes(attributes);
+        movementSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     void FixedUpdate()
@@ -49,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         {
             AirMovement();
         }
-          anim.speed = rb.velocity.magnitude / maxSpeed;
+        anim.speed = rb.velocity.magnitude / maxSpeed;
         if (rb.velocity.y > 5f || rb.velocity.y < -5)
         {
             foreach (ParticleSystem particle in movementEffect)
@@ -57,16 +66,39 @@ public class PlayerMovement : MonoBehaviour
                 if (particle.isPlaying)
                 {
                     particle.Stop();
-                    soundEffectForMovement.SetActive(false);
+                    playMovementSound = false;
                 }
             }
+        }
+        DrivingSound();
+    }
+
+    void DrivingSound()
+    {
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(movementSoundInstance, GetComponent<Transform>(), GetComponent<Rigidbody>());
+        // I fucking hate FMOD
+        if (playMovementSound)
+        {
+            FMOD.Studio.PLAYBACK_STATE fmodPlaybackState;
+            movementSoundInstance.getPlaybackState(out fmodPlaybackState);
+            Debug.Log(fmodPlaybackState);
+            if (fmodPlaybackState != FMOD.Studio.PLAYBACK_STATE.PLAYING)
+            {
+                Debug.Log("started!");
+                movementSoundInstance.start();
+            }
+
+        }
+        else
+        {
+            movementSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }
 
     void AirMovement()
     {
         float horiztontalInput = Input.GetAxis("Horizontal");
-       // float verticalInput = Input.GetAxis("Vertical");
+        // float verticalInput = Input.GetAxis("Vertical");
 
         rb.MoveRotation(rb.rotation * Quaternion.Euler(0, rotationSpeed * horiztontalInput * Time.deltaTime * 0.5f, 0));
     }
@@ -102,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
                 if (!particle.isPlaying)
                 {
                     particle.Play();
-                    soundEffectForMovement.SetActive(true);
+                    playMovementSound = true;
                 }
             }
             else
@@ -110,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
                 if (particle.isPlaying)
                 {
                     particle.Stop();
-                    soundEffectForMovement.SetActive(false);
+                    playMovementSound = false;
                 }
             }
         }
@@ -119,7 +151,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-     isTouchingGround = true;   
+        isTouchingGround = true;
     }
     void OnCollisionStay(Collision other)
     {

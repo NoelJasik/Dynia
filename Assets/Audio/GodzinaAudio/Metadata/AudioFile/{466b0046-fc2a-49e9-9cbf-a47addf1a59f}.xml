@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{466b0046-fc2a-49e9-9cbf-a47addf1a59f}">
+		<property name="assetPath">
+			<value>npc_grunt_f1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.31083900226757372</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1d677953-e861-423e-b158-8b7937861ce7}</destination>
+		</relationship>
+	</object>
+</objects>
