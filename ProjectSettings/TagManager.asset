@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
+  - Npc
+  - Crate
+  - Barrier
+  - End
   layers:
   - Default
   - TransparentFX
@@ -15,8 +19,8 @@ TagManager:
   - Ground
   - Assist
   - PP
-  - 
-  - 
+  - End
+  - Player
   - 
   - 
   - 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7560548587931915654}
   - component: {fileID: 4806160009427210823}
   - component: {fileID: 1422922544771148308}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Arm (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 7542296717872307193}
   - component: {fileID: 3368382051190205588}
   - component: {fileID: 5224756715430092377}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: StrawHat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 6756653627252057477}
   - component: {fileID: 8897972475524877883}
   - component: {fileID: 2871791809460430657}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WheelBarrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 9112467754092249896}
   - component: {fileID: 135837490803387697}
   - component: {fileID: 2756163537184542729}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ GameObject:
   - component: {fileID: 336584377845154872}
   - component: {fileID: 6338848367342348348}
   - component: {fileID: 6895526382585478489}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 4074422132434127250}
   - component: {fileID: 7505633773478156343}
   - component: {fileID: 789717312432046838}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -728,7 +728,7 @@ GameObject:
   - component: {fileID: 4424019670637092526}
   - component: {fileID: 8160143948917947507}
   - component: {fileID: 8651178729083701238}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -824,7 +824,7 @@ GameObject:
   - component: {fileID: 6551863314429325843}
   - component: {fileID: 3057454154655783054}
   - component: {fileID: 8663289588564583237}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -907,9 +907,9 @@ GameObject:
   - component: {fileID: 5110947835921311653}
   - component: {fileID: 5657253098592893244}
   - component: {fileID: 7695047660452856815}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DeadBody
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -965,21 +965,21 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 442797902
+      Data2: 1314805864
+      Data3: -1052354167
+      Data4: 924634963
+    Path: event:/SFX/player_hit_gameover
   Event: 
   PlayEvent: 1
-  StopEvent: 0
+  StopEvent: 2
   AllowFadeout: 1
-  TriggerOnce: 0
+  TriggerOnce: 1
   Preload: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5609529438062515853
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,7 +992,7 @@ GameObject:
   - component: {fileID: 7563896721734126610}
   - component: {fileID: 5307756240426556447}
   - component: {fileID: 446657469522251063}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1091,7 +1091,7 @@ GameObject:
   - component: {fileID: 8518191280505063748}
   - component: {fileID: 3251269277561590166}
   - component: {fileID: 8365505445197984061}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1220,7 +1220,7 @@ GameObject:
   - component: {fileID: 5771662133294188050}
   - component: {fileID: 7140734866299567046}
   - component: {fileID: 1323675505139669587}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HatTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1316,7 +1316,7 @@ GameObject:
   - component: {fileID: 1337536872505838485}
   - component: {fileID: 4365724851916686940}
   - component: {fileID: 8781665920470635872}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pumpkin2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

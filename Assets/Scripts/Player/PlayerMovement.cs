@@ -23,8 +23,6 @@ public class PlayerMovement : MonoBehaviour
     FMODUnity.EventReference movementSound;
 
     FMOD.Studio.EventInstance movementSoundInstance;
-    [SerializeField]
-    FMOD.ATTRIBUTES_3D attributes;
 
     bool playMovementSound = false;
 
@@ -44,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
         anim.Play("WheelsRide");
         movementSoundInstance = FMODUnity.RuntimeManager.CreateInstance(movementSound);
         // movementSoundInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
-        movementSoundInstance.set3DAttributes(attributes);
         movementSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
@@ -160,6 +157,12 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionExit(Collision other)
     {
         isTouchingGround = false;
+    }
+
+    void OnDisable()
+    {
+        playMovementSound = false;
+                    movementSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
 }

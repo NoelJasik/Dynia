@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 6812736614755712848}
   - component: {fileID: 2738905011571830183}
   - component: {fileID: 4158164522132823188}
+  - component: {fileID: 2013433996241733136}
+  - component: {fileID: 5389667356395558630}
   m_Layer: 0
   m_Name: Crate
-  m_TagString: Untagged
+  m_TagString: Crate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,3 +116,51 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2013433996241733136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8416109155611514693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aff824e0b0f43d52a88c700ba074ad41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSound:
+    Guid:
+      Data1: -71982583
+      Data2: 1271445271
+      Data3: -1639724137
+      Data4: 853530953
+    Path: event:/SFX/player_hit_small
+  tags:
+  - Ground
+  minSpeed: 2
+  playCooldown: 0.5
+--- !u!114 &5389667356395558630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8416109155611514693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aff824e0b0f43d52a88c700ba074ad41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSound:
+    Guid:
+      Data1: -71982583
+      Data2: 1271445271
+      Data3: -1639724137
+      Data4: 853530953
+    Path: event:/SFX/player_hit_small
+  tags:
+  - Player
+  - Obstacle
+  - Npc
+  minSpeed: 0.2
+  playCooldown: 0.25

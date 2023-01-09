@@ -136,7 +136,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975234285124908534}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e1dd4200d42c36b67aaa3e139e2181ae, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -233,7 +233,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2968100127425811276}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e1dd4200d42c36b67aaa3e139e2181ae, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -330,7 +330,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2968100127809040607}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e1dd4200d42c36b67aaa3e139e2181ae, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -527,6 +527,8 @@ GameObject:
   - component: {fileID: 2968100128913899466}
   - component: {fileID: 2968100128913899469}
   - component: {fileID: 6177195440844268126}
+  - component: {fileID: 2128630237908568163}
+  - component: {fileID: 7182124000138434854}
   m_Layer: 0
   m_Name: DrivingCar
   m_TagString: Obstacle
@@ -587,6 +589,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: {x: 0, y: 0, z: 0}
   existanceTime: 40
+--- !u!114 &2128630237908568163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2968100128913899467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 431500950
+      Data2: 1175546767
+      Data3: -1560806220
+      Data4: -67637817
+    Path: event:/SFX/car_engine_loop
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 100
+--- !u!114 &7182124000138434854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2968100128913899467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aff824e0b0f43d52a88c700ba074ad41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSound:
+    Guid:
+      Data1: -1757353172
+      Data2: 1241452542
+      Data3: -1079506279
+      Data4: 205067005
+    Path: event:/SFX/car_hit
+  tags:
+  - Player
+  - Npc
+  - Barrier
+  minSpeed: 2
+  playCooldown: 0.25
 --- !u!1 &6324410177201351380
 GameObject:
   m_ObjectHideFlags: 0

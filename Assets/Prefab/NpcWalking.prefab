@@ -207,9 +207,10 @@ GameObject:
   - component: {fileID: 4266712294654416845}
   - component: {fileID: 7175009131566104816}
   - component: {fileID: 7136867276788202752}
+  - component: {fileID: 7939060707175524708}
   m_Layer: 0
   m_Name: NpcWalking
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -264,6 +265,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &7939060707175524708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5668140046785391846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aff824e0b0f43d52a88c700ba074ad41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSound:
+    Guid:
+      Data1: -1535870371
+      Data2: 1192193755
+      Data3: 1204581815
+      Data4: -795022723
+    Path: event:/SFX/npc_hit_man
+  tags:
+  - Player
+  - Obstacle
+  minSpeed: 0
+  playCooldown: 0.25
 --- !u!1 &6025752308957299650
 GameObject:
   m_ObjectHideFlags: 0

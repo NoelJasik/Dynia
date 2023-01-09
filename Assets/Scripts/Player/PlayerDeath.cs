@@ -14,6 +14,14 @@ public class PlayerDeath : MonoBehaviour
 
     float invincibilityTimer;
 
+    [SerializeField]
+    FMODUnity.EventReference tiltUp;
+    [SerializeField]
+    FMODUnity.EventReference tiltDown;
+    bool canSoundPlay = true;
+    float soundCooldown = 0;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,19 +39,21 @@ public class PlayerDeath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(spawnInvincibility)
+        soundCooldown -= Time.deltaTime;
+        if (spawnInvincibility)
         {
             invincibilityTimer -= Time.deltaTime;
-            if(invincibilityTimer <= 0)
+            if (invincibilityTimer <= 0)
             {
                 spawnInvincibility = false;
-            } else
+            }
+            else
             {
                 return;
             }
         }
         // If the player presses R, die
-        if(Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             deathManager.Die();
         }
@@ -62,6 +72,39 @@ public class PlayerDeath : MonoBehaviour
         {
             Debug.Log("Player has died");
             deathManager.Die();
+        }
+        if (transform.rotation.eulerAngles.x > 10 && transform.rotation.eulerAngles.x < 300 && canSoundPlay && soundCooldown <= 0)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(tiltUp, transform.position);
+            canSoundPlay = false;
+            soundCooldown = 0.25f;
+
+        }
+        if (transform.rotation.eulerAngles.x < -10 && transform.rotation.eulerAngles.x > -300 && canSoundPlay && soundCooldown <= 0)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(tiltDown, transform.position);
+            canSoundPlay = false;
+            soundCooldown = 0.25f;
+
+        }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.layer == 6)
+        {
+            canSoundPlay = true;
+        }
+        if(other.gameObject.tag == "End")
+        {
+            deathManager.Die();
+        }
+    }
+    void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.layer == 6)
+        {
+            canSoundPlay = true;
         }
     }
 }
